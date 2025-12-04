@@ -1,0 +1,55 @@
+// ===================================================
+// 【設定エリア】案件ごとにここを書き換える
+// ===================================================
+const SHEET_NAME    = 'フォーム';              // 1. スプレッドシートのシート名（変更なければそのままでOK）
+const NOTIFY_EMAIL  = 'yuto1201h@gmail.com';  // 2. 通知先アドレス（案件ごとに変更する！）
+const EMAIL_SUBJECT = '【HPよりお問い合わせ】';  // 3. メールの件名（案件名を入れると良い）
+// ===================================================
+
+function doPost(e) {
+  // 排他制御（同時送信対策）
+  const lock = LockService.getScriptLock();
+  if (lock.tryLock(10000)) {
+    try {
+      const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+      const params = e.parameter;
+
+      // シート保存
+      sheet.appendRow([
+        new Date(),             // A列
+        params.name    || '',   // B列
+        params.email   || '',   // C列
+        params.phone   || '',   // D列
+        params.message || '',   // E列
+        params.source  || ''    // F列
+      ]);
+
+      // メール送信
+      const subject = EMAIL_SUBJECT + (params.name || '（名前なし）');
+      const body = [
+        'Webサイトからお問い合わせがありました。',
+        '',
+        '日時: ' + new Date().toLocaleString(),
+        '名前: ' + (params.name || ''),
+        'メール: ' + (params.email || ''),
+        '電話番号: ' + (params.phone || ''),
+        '',
+        '本文:',
+        (params.message || ''),
+        '',
+        '送信元: ' + (params.source || '')
+      ].join('\n');
+
+      MailApp.sendEmail(NOTIFY_EMAIL, subject, body);
+
+      return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
+
+    } catch(e) {
+      return ContentService.createTextOutput("Error: " + e.message).setMimeType(ContentService.MimeType.TEXT);
+    } finally {
+      lock.releaseLock();
+    }
+  } else {
+    return ContentService.createTextOutput("Busy").setMimeType(ContentService.MimeType.TEXT);
+  }
+}
