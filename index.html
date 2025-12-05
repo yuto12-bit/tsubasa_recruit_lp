@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{COMPANY_NAME}}計測テストLP</title>
+  <title>{{COMPANY_NAME}}｜東大阪の適正価格×高品質施工</title>
   <meta name="description" content="東大阪エリアで外壁・内装・リフォームを高品質かつ適正価格で実現。中間マージン徹底排除。無料見積もり・即日対応。" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="layout.css" />
-
-  <!-- GA4 -->
+</head>
+ <!-- GA4 -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DV2FQLV9"></script>
 <script>
@@ -21,21 +21,17 @@
 
   gtag('config', 'G-H8DV2FQLV9');
 </script>
-</head>
-
 <body>
 
 <header class="header">
   <div class="container header__inner">
-    <div class="hero__bg"></div>
-    <a href="#" class="header__logo">{{COMPANY_NAME}}</a>
+    <a href="#" class="header__logo">株式会社　木村建設</a>
     <button class="header__toggle" aria-expanded="false" data-event="menu_toggle">≡</button>
 
     <nav class="header__nav" id="global-nav">
       <ul class="nav__list">
-        <li><a href="#works" data-event="nav_works">施工実績</a></li>
-        <li><a href="#service" data-event="nav_service">サービス</a></li>
-        <li><a href="#flow" data-event="nav_flow">流れ</a></li>
+        <li><a href="#works" data-event="nav_works">現場の雰囲気</a></li>
+        <li><a href="#flow" data-event="nav_flow">一日の流れ</a></li>
         <li><a href="#faq" data-event="nav_faq">FAQ</a></li>
         <li><a href="#contact" data-event="nav_contact">問い合わせ</a></li>
       </ul>
@@ -45,140 +41,174 @@
 
 <main id="main">
 
-<!-- Hero -->
+<!-- Hero（採用LP）：ファーストビュー -->
 <section class="hero module-wrapper">
+   <div class="hero__bg"></div>
   <div class="container hero__inner">
     <h1 class="hero__title">
-      【 計測テスト 】中間マージン徹底排除。<br>
-      適正価格×高品質施工を約束する {{COMPANY_NAME}}
+      【 神戸市の現場スタッフ募集 】<br>
+       未経験で“手に職”をつけるなら木村建設
     </h1>
-    <p class="hero__text">「追加費用ゼロ」「最短即日対応」。地域密着の建築・リフォームサービス。</p>
+    <p class="hero__text">
+      神戸市エリアを中心に、足場・外構・解体などの現場で一緒に仲良く働く仲間を募集しています<br>
+      学歴・経験不問。体力に自信んがなくても、道具の名前・安全ルールから丁寧に教えます。
+    </p>
 
     <div class="hero__cta">
-      <a href="#contact" class="btn btn--main" data-event="cta_hero">無料見積もりはこちら</a>
+      <a href="#contact" class="btn btn--main" data-event="cta_hero">30秒で応募する</a>
       <a href="tel:{{PHONE_NUMBER}}" class="btn btn--sub" data-event="call_hero">
-        電話で相談（{{PHONE_NUMBER}}）
+        LINEで応募・質問をする
       </a>
     </div>
   </div>
 </section>
 
-<!-- CTA TOP -->
-<section class="cta cta--top module-wrapper">
-  <div class="container cta__inner">
-    <p class="cta__headline">【 今月限定：施工枠残り <strong>3件</strong> 】</p>
-    <div class="cta__buttons">
-      <a href="#contact" class="btn btn--main" data-event="cta_top">無料見積もりを依頼する</a>
-      <a href="tel:{{PHONE_NUMBER}}" class="btn btn--sub" data-event="call_top">電話で相談する</a>
-    </div>
-  </div>
-</section>
-
-<!-- Works -->
+<!-- Works（採用LP）現場の雰囲気・仕事のイメージ -->
 <section id="works" class="module-wrapper">
   <div class="container section__inner">
-    <h2 class="section__title">施工実績</h2>
+    <h2 class="section__title">現場の雰囲気</h2>
 
     <div class="works__list">
       <article class="work-card">
-        <img src="images/work1.jpg" alt="戸建て外壁の塗装事例">
-        <h3 class="work-card__title">外壁リフォーム</h3>
+        <img src="images/work1.jpg" alt="足場工事で作業するスタッフ">
+        <h3 class="work-card__title">足場工事の現場</h3>
       </article>
 
       <article class="work-card">
-        <img src="images/work2.jpg" alt="キッチン内装リフォーム事例">
-        <h3 class="work-card__title">内装リフォーム</h3>
+        <img src="images/work2.jpg" alt="外構工事の作業風景">
+        <h3 class="work-card__title">外構工事の現場</h3>
       </article>
 
       <article class="work-card">
-        <img src="images/work3.jpg" alt="フェンス交換工事の事例">
-        <h3 class="work-card__title">外構工事</h3>
+        <img src="images/work3.jpg" alt="翼とスタッフが打ち合わせしている様子">
+        <h3 class="work-card__title">翼とスタッフの打ち合わせ</h3>
       </article>
     </div>
   </div>
 </section>
 
-<!-- Strong -->
+<!-- Flow （採用LP:  現場スタッフの1日の流れ-->
+<section id="flow" class="module-wrapper">
+  <div class="container section__inner">
+    <h2 class="section__title">現場スタッフの1日の流れ（例）</h2>
+
+    <ol class="flow__list">
+      <li class="flow__item">
+        7:30　事務所に集合し、点呼とその日の現場・作業内容を確認
+      </li>
+      <li class="flow__item">
+        8:00　車で現場へ出発・到着後に道具の準備と安全確認
+      </li>
+      <li class="flow__item">
+        9:00　午前の作業開始（足場の組立や資材運びなど）
+      </li>
+      <li class="flow__item">
+        12:00　休憩・昼食（現場や近くのコンビニ・飲食店でそれぞれ休憩）
+      </li>
+      <li class="flow__item">
+        13:00　午後の作業再開（仕上げ作業・片付け・翌日の準備など）
+      </li>
+      <li class="flow__item">
+        16:30　道具の片付け・清掃・車への積み込み
+      </li>
+      <li class="flow__item">
+        17:00　事務所に戻って解散、翌日の簡単な打ち合わせ
+      </li>
+    </ol>
+     <p class="flow__note">
+      ※ 上記は一例です。現場や時期によって、時間帯が前後する場合があります。
+    </p>
+  </div>
+</section>
+
+<!-- Strong （採用LP）この仕事で得られる3つのもの-->
 <section class="module-wrapper">
   <div class="container section__inner">
-    <h2 class="section__title">選ばれる理由</h2>
+    <h2 class="section__title">この仕事で得られる3つのもの</h2>
 
     <div class="strong__list">
       <div class="strong__item">
-        <h3 class="strong__title">中間マージン徹底排除</h3>
-        <p class="strong__text">自社職人だからこその適正価格。</p>
+        <h3 class="strong__title">未経験から“職人”を目指せる</h3>
+        <p class="strong__text">
+          道具の名前や持ち方、安全な動き方まで、現場デビュー前に先輩が一から教えます。<br>
+          最初は簡単な補助作業からスタートするので、少しずつ慣れていけます！
+        </p>
       </div>
 
       <div class="strong__item">
-        <h3 class="strong__title">最短即日対応</h3>
-        <p class="strong__text">スピード対応。</p>
+        <h3 class="strong__title">頑張りが収入に反映される</h3>
+        <p class="strong__text">
+          現場数やスキルに応じて、日給アップ・手当でしっかり評価します！<br>
+          「とにかく稼ぎたい」「将来独立したい」という人も歓迎です。
+        </p>
       </div>
 
       <div class="strong__item">
-        <h3 class="strong__title">追加費用ゼロ</h3>
-        <p class="strong__text">明朗見積で安心して依頼できます。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Story -->
-<section class="module-wrapper">
-  <div class="container section__inner">
-    <h2 class="section__title">代表プロフィール</h2>
-
-    <div class="story__inner">
-      <img src="images/owner.jpg" alt="代表者写真">
-      <div class="story__body">
-        <h3 class="story__name">代表：{{OWNER_NAME}}</h3>
-        <p class="story__text">
-          10年以上、建築とリフォームに携わってきました。地域の人に信頼される施工を心がけています。
+        <h3 class="strong__title">少人数で相談しやすい職場</h3>
+        <p class="strong__text">
+          若手からベテランまで、少人数のチームで動いています！<br>
+          分からないことや不安なことは、その場で気軽に相談できる雰囲気です。
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Service -->
-<section id="service" class="module-wrapper">
+<!-- Story（採用LP）代表メッセージ -->
+<section class="module-wrapper">
   <div class="container section__inner">
-    <h2 class="section__title">サービス内容</h2>
+    <h2 class="section__title">代表メッセージ</h2>
 
-    <div class="service__list">
-      <div class="service__item">
-        <h3 class="service__title">外壁リフォーム</h3>
-        <p class="service__text">高耐久塗料で10〜15年持つ外壁に。</p>
-      </div>
-
-      <div class="service__item">
-        <h3 class="service__title">内装リフォーム</h3>
-        <p class="service__text">キッチン・トイレ・浴室など家全体に対応。</p>
-      </div>
-
-      <div class="service__item">
-        <h3 class="service__title">外構工事</h3>
-        <p class="service__text">フェンス、カーポート、玄関まわりもOK。</p>
+    <div class="story__inner">
+      <img src="images/owner.jpg" alt="代表者写真">
+      <div class="story__body">
+        <h3 class="story__name">代表：{{OWNER_NAME}}</h3>
+        <p class="story__text">
+          建設の現場仕事は、正直に言えば「楽な仕事」ではありません。<br>
+          ただ、その分やり切ったときの達成感や、お客様から直接「ありがとう」と言ってもらえる喜びは大きい仕事です。<br><br>
+          経験や学歴よりも、「挨拶ができる」「約束を守る」「コツコツ続けられる」。<br>
+          そんな人と一緒に現場を支えていきたいと考えています。<br><br>
+          まずは話を聞きに来るだけでも構いません。あなたからの応募を待っています。
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Flow -->
-<section id="flow" class="module-wrapper">
+<!-- Service （採用LP: 募集職種・仕事内容・条件）-->
+<section id="service" class="module-wrapper">
   <div class="container section__inner">
-    <h2 class="section__title">依頼の流れ</h2>
+    <h2 class="section__title">募集職種・仕事内容</h2>
 
-    <ol class="flow__list">
-      <li class="flow__item">お問い合わせ</li>
-      <li class="flow__item">現地調査</li>
-      <li class="flow__item">見積もり提示</li>
-      <li class="flow__item">着工</li>
-      <li class="flow__item">完工</li>
-    </ol>
+    <div class="service__list">
+      <div class="service__item">
+        <h3 class="service__title">募集職種</h3>
+        <p class="service__text">現場作業スタッフ（足場・外構・リフォーム）<br>
+          ・足場の組立・解体<br>
+          ・ブロック・フェンスなどの外構工事<br>
+          ・リフォーム現場での片付け・資材運び など</p>
+      </div>
+
+      <div class="service__item">
+        <h3 class="service__title">雇用形態・給与</h3>
+        <p class="service__text">雇用形態：正社員／アルバイト<br>
+          給与：日給〇〇円〜（経験・能力を考慮）<br>
+          ・昇給あり<br>
+          ・各種手当あり（残業・資格など）<br>
+          ※ 詳細は面談時にご説明します。</p>
+      </div>
+
+      <div class="service__item">
+        <h3 class="service__title">勤務時間・休日・勤務地</h3>
+        <p class="service__text"> 勤務時間：〇:〇〇〜〇:〇〇（現場により前後あり）<br>
+          休日：日曜／GW／お盆／年末年始<br>
+          勤務地：神戸市を中心とした関西一円の各現場</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- FAQ（採用LP: よくある質問） -->
 <section id="faq" class="module-wrapper">
   <div class="container section__inner">
     <h2 class="section__title">よくある質問</h2>
@@ -186,49 +216,47 @@
     <div class="faq__list">
       <div class="faq__item">
         <div class="faq__q" role="button" aria-expanded="false" data-event="faq_open">
-          見積もりは無料ですか？
+          未経験でも本当に大丈夫ですか？
         </div>
-        <div class="faq__a">はい、無料です。</div>
+        <div class="faq__a">はい、大丈夫です。道具の名前や使い方、安全面から丁寧にお教えします。<br>
+          最初は簡単な作業からお任せするので、少しずつ慣れていけます。</div>
       </div>
 
       <div class="faq__item">
         <div class="faq__q" role="button" aria-expanded="false" data-event="faq_open">
-          小さな工事も対応できますか？
+          必要な資格や免許はありますか？
         </div>
-        <div class="faq__a">手すり設置などの小工事も対応可能です。</div>
+        <div class="faq__a">普通自動車免許がある方は歓迎ですが、必須ではありません。<br>
+          資格が必要な業務については、入社後に資格取得をサポートします。</div>
       </div>
+
+       <div class="faq__item">
+        <div class="faq__q" role="button" aria-expanded="false" data-event="faq_open">
+          シフトや休みの希望は出せますか？
+        </div>
+        <div class="faq__a">
+          事前にご相談いただければ、できる限り調整します。<br>
+          家庭の事情や学校行事などがある場合も、まずは遠慮なくご相談ください。
+        </div>
     </div>
   </div>
 </section>
 
-<!-- Access -->
-<section id="access" class="module-wrapper">
-  <div class="container section__inner">
-    <h2 class="section__title">アクセス</h2>
-    <div class="access__map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=XXXX"
-        width="100%" height="400" style="border:0;" allowfullscreen loading="lazy">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
+<!-- Contact（採用LP: 応募フォーム） -->
 <section id="contact" class="module-contact module-wrapper">
   <div class="container section__inner">
-    <h2 class="section__title">お問い合わせ</h2>
+    <h2 class="section__title">応募フォーム</h2>
 
     <p class="contact__note">
-      お見積もり・ご相談は無料です。<br>
-      以下のフォームよりお気軽にご連絡ください。
+       採用に関するご応募・ご質問は、以下のフォームから受け付けています。<br>
+      「まずは話だけ聞いてみたい」という方も、お気軽にご連絡ください。
     </p>
 
     <div class="contact__form-wrapper">
       
       <form id="contactForm" class="form">
 
-  <input type="hidden" name="source" value="measurement-lp">
+  <input type="hidden" name="source" value="{{LP_SOURCE_NAME}}">
 
   <div class="form__group">
     <label for="name" class="form__label">お名前 <span class="form__required">必須</span></label>
@@ -246,7 +274,7 @@
   </div>
 
   <div class="form__group">
-    <label for="message" class="form__label">ご相談内容</label>
+    <label for="message" class="form__label">志望動機・質問など</label>
     <textarea name="message" id="message" class="form__textarea" rows="5" placeholder="ご質問や工事のご希望時期などをご記入ください。"></textarea>
   </div>
 
@@ -261,12 +289,12 @@
 </section>
 
 
-<!-- CTA bottom -->
+<!-- CTA bottom（採用LP: 下部CTA） -->
 <section class="cta cta--bottom module-wrapper">
   <div class="container cta__inner">
     <div class="cta__buttons">
-      <a href="#contact" class="btn btn--main" data-event="cta_bottom">無料見積もりを依頼する</a>
-      <a href="tel:{{PHONE_NUMBER}}" class="btn btn--sub" data-event="call_bottom">電話で相談する</a>
+      <a href="#contact" class="btn btn--main" data-event="cta_bottom">Webフォームから応募する</a>
+      <a href="tel:{{PHONE_NUMBER}}" class="btn btn--sub" data-event="call_bottom">LINEで応募・質問する</a>
     </div>
   </div>
 </section>
@@ -276,10 +304,10 @@
 <!-- Floating CTA（SP only） -->
 <div class="floating-cta">
   <a href="tel:{{PHONE_NUMBER}}" class="floating-cta__item floating-cta__item--tel" data-event="floating_tel">
-    電話で相談
+    LINEで相談
   </a>
   <a href="#contact" class="floating-cta__item floating-cta__item--reserve" data-event="floating_reserve">
-    Web見積もり
+    Web応募
   </a>
 </div>
 
@@ -294,38 +322,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
-
-<script>
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // デフォルトの送信（画面遷移）をキャンセル
-    
-    const form = e.target;
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    
-    // 二重送信防止＆ローディング表示
-    submitBtn.disabled = true;
-    submitBtn.textContent = '送信中...';
-
-    // FormDataを作成
-    const formData = new FormData(form);
-
-    // あなたのGAS WebアプリURL
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbybwIROw2J5CpdYszAQph-5wRwN1qfraXid8I4uSuNKDsAfTsYXkS0wTNi82RXp3wFz/exec';
-
-    fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors'})
-      .then(response => {
-        // 成功したらThanksページへ遷移
-        window.location.href = 'thanks.html';
-      })
-      .catch(error => {
-        console.error('Error!', error.message);
-        alert('送信に失敗しました。もう一度お試しください。');
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      });
-  });
-</script>
+<script src="script.js?v=20251205_01"></script>
 </body>
 </html>
