@@ -258,7 +258,13 @@
       
       <form id="contactForm" class="form">
 
-  <input type="hidden" name="source" value="{{LP_SOURCE_NAME}}">
+  <input
+  type="hidden"
+  name="source"
+  id="source_field"
+  value="tsubasa_recruit_lp"
+>
+
 
   <div class="form__group">
     <label for="name" class="form__label">お名前 <span class="form__required">必須</span></label>
@@ -325,5 +331,33 @@
 </footer>
 
 <script src="script.js?v=20251205_01"></script>
+
+<script>
+  (function () {
+    // hidden 要素を取得
+    const el = document.getElementById('source_field');
+    if (!el) return;
+
+    const params = new URLSearchParams(window.location.search);
+
+    // ?utm_source=xxx がついていればそれを最優先
+    const utmSource = params.get('utm_source');
+
+    // 何も来てなければ referrer（遷移元URL）を見る
+    const ref = document.referrer || '';
+
+    let value = el.value || ''; // 初期値（{{LP_SOURCE_NAME}}）が入ってるかもしれない
+
+    if (utmSource) {
+      value = utmSource;
+    } else if (!value) {
+      // 初期値もなく、utm_source もない場合だけ fallback
+      value = ref || 'direct';
+    }
+
+    el.value = value;
+  })();
+</script>
+
 </body>
 </html>
