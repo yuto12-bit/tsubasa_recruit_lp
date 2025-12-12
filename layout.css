@@ -402,6 +402,24 @@ body {
     padding: var(--space-sm);
   }
 }
+
+/*=====privacy=====*/
+.privacy {
+  padding: 48px 0;
+  background: #f9f9f9;
+  font-size: 14px;
+}
+
+.privacy__text + .privacy__text {
+  margin-top: 8px;
+}
+
+.privacy__note {
+  font-size: 12px;
+  color: #666;
+}
+
+
 /* ===== Floating CTA ===== */
 
 .floating-cta {
