@@ -383,6 +383,18 @@ body {
   resize: vertical; /* 縦方向のみリサイズ許可 */
 }
 
+.form__consent-label{
+  display:flex;
+  gap:8px;
+  align-items:flex-start;
+  font-size:14px;
+  line-height:1.5;
+}
+.form__consent-label a{
+  text-decoration:underline;
+}
+
+
 .form__submit {
   text-align: center;
   margin-top: var(--space-lg);
