@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>送信完了｜{{COMPANY_NAME}}</title>
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="tokens.css">
-  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="layout.css" />
 
-   <!-- GA4 -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{G-XXXXXXXX}}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DV2FQLV9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H8DV2FQLV9');
+  </script>
+</head>
 
-  gtag('config', '{{G-XXXXXXXX}}'); 
-</script>
-
-  </head>
 <body>
   <div class="container" style="padding-top: 100px; text-align: center;">
-    <h1 style="font-size: 24px; margin-bottom: 24px; font-weight: bold;">お問い合わせありがとうございます</h1>
-    <p style="margin-bottom: 48px;">
-      送信が完了しました。<br>
-      担当者より24時間以内に折り返しご連絡いたします。
+    <h1 style="font-size: 24px; margin-bottom: 24px; font-weight: bold;">
+      応募ありがとうございます
+    </h1>
+
+    <p style="margin-bottom: 20px;">
+      送信が完了しました。<br />
+      担当者より<strong>24時間以内</strong>に折り返しご連絡いたします。
     </p>
-    <a href="index.html" class="btn btn--sub" data-event="thanks_back_top">トップページに戻る</a>
+
+    <p style="margin-bottom: 48px; font-size: 14px; line-height: 1.7;">
+      ※万が一、24時間以内に連絡がない場合は、<br />
+      メールが届いていない／見落としの可能性があります。<br />
+      お手数ですが <a href="tel:09042931035" data-event="thanks_call">お電話</a> にてご連絡ください。
+    </p>
+
+    <a href="index.html" class="btn btn--sub" data-event="thanks_back_top">
+      トップページに戻る
+    </a>
   </div>
 </body>
 </html>

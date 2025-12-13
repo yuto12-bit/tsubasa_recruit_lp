@@ -40,19 +40,22 @@ faqItems.forEach((item) => {
 document.querySelectorAll("[data-event]").forEach((el) => {
   el.addEventListener("click", () => {
     const eventName = el.dataset.event;
+    const label = el.dataset.label || window.location.pathname;
 
     // デバッグ用ログ
-    console.log("EVENT:", eventName);
+    console.log("EVENT:", eventName, "LABEL:", label);
 
     // GA4 にイベント送信
     if (typeof gtag === "function" && eventName) {
       gtag("event", eventName, {
         event_category: "lp",
-        event_label: window.location.pathname
+        event_label: label,
+        transport_type: "beacon"
       });
     }
   });
 });
+
 
 // （...ここより上に、ハンバーガーメニューなどの既存コードがあるはず...）
 

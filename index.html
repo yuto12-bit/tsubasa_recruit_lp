@@ -58,11 +58,11 @@
     </p>
 
     <div class="hero__cta">
-      <a href="#contact" class="btn btn--main" data-event="cta_hero">30秒で応募する</a>
-      <a href="tel:{{PHONE_NUMBER}}" class="btn btn--sub" data-event="call_hero">
-        LINEで応募・質問をする
-      </a>
-    </div>
+  <a href="#contact" class="btn btn--main" data-event="cta_hero">30秒で応募する</a>
+  <a href="tel:09042931035" class="btn btn--sub" data-event="tap_call" data-label="hero_tel">
+    電話で応募・質問する
+  </a>
+</div>
   </div>
 </section>
 
@@ -340,6 +340,7 @@
       採用業務の一部を外部パートナーに委託する場合があります。
       その際、上記目的の達成に必要な範囲で、応募者の個人情報を当該外部パートナーが取り扱うことがあります。
       当社は外部パートナーに対し、目的外利用の禁止、第三者への再提供の禁止、漏えい防止等を求め、適切に監督します。
+      なお、本採用選考の円滑な運営のため、応募データの管理・連絡業務の一部を外部パートナー（運営事務局）に委託しており、守秘義務のもとで応募情報を共有する場合があります。
     </p>
 
     <p class="privacy__text">
@@ -372,7 +373,9 @@
   <div class="container cta__inner">
     <div class="cta__buttons">
       <a href="#contact" class="btn btn--main" data-event="cta_bottom">Webフォームから応募する</a>
-      <a href="tel:{{PHONE_NUMBER}}" class="btn btn--sub" data-event="call_bottom">LINEで応募・質問する</a>
+      <a href="tel:09042931035" class="btn btn--sub" data-event="tap_call" data-label="bottom_tel">
+        電話で応募・質問する
+      </a>
     </div>
   </div>
 </section>
@@ -381,20 +384,21 @@
 
 <!-- Floating CTA（SP only） -->
 <div class="floating-cta">
-  <a href="tel:{{PHONE_NUMBER}}" class="floating-cta__item floating-cta__item--tel" data-event="floating_tel">
-    LINEで相談
+  <a href="tel:09042931035" class="floating-cta__item floating-cta__item--tel" data-event="tap_call" data-label="floating_tel">
+    電話で相談
   </a>
   <a href="#contact" class="floating-cta__item floating-cta__item--reserve" data-event="floating_reserve">
     Web応募
   </a>
 </div>
 
+
 <footer class="footer">
   <div class="container footer__inner">
     <p class="footer__logo">{{COMPANY_NAME}}</p>
     <p class="footer__copy">
       〒{{ADDRESS}}｜
-      <a href="tel:{{PHONE_NUMBER}}" data-event="call_footer">TEL: {{PHONE_NUMBER}}</a><br>
+      <a href="tel:09042931035" data-event="tap_call" data-label="footer_tel">TEL: {{PHONE_NUMBER_DISPLAY}}</a><br>
       <a href="#privacy" class="footer__policy">プライバシーポリシー</a>
     </p>
   </div>
