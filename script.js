@@ -1,15 +1,23 @@
-// ===== Mobile Menu =====
-const toggle = document.querySelector(".header__toggle");
-const nav = document.querySelector(".header__nav");
+// ==============================
+// Safe Helpers
+// ==============================
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
-if (toggle && nav) {
-  // ハンバーガー開閉
+// ==============================
+// Mobile Menu
+// ==============================
+(() => {
+  const toggle = $(".header__toggle");
+  const nav = $(".header__nav");
+  if (!toggle || !nav) return;
+
   toggle.addEventListener("click", () => {
     const open = nav.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
   });
 
-  // メニュー内リンクをクリックしたら閉じる（#リンクのみ）
+  // メニュー内リンククリックで閉じる（#リンクのみ）
   nav.addEventListener("click", (event) => {
     const link = event.target.closest("a");
     if (!link) return;
@@ -20,41 +28,55 @@ if (toggle && nav) {
     nav.classList.remove("is-open");
     toggle.setAttribute("aria-expanded", "false");
   });
-}
+})();
 
-// ===== FAQ Accordion =====
-const faqItems = document.querySelectorAll(".faq__item");
+// ==============================
+// FAQ Accordion
+// ==============================
+(() => {
+  const faqItems = $$(".faq__item");
+  if (!faqItems.length) return;
 
-faqItems.forEach((item) => {
-  const q = item.querySelector(".faq__q");
-  if (!q) return;
+  faqItems.forEach((item) => {
+    const q = $(".faq__q", item);
+    if (!q) return;
 
-  q.addEventListener("click", () => {
-    const isOpen = item.classList.toggle("is-open");
-    q.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    q.addEventListener("click", () => {
+      const isOpen = item.classList.toggle("is-open");
+      q.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
   });
-});
+})();
 
-// ===== CTA click events（計測フック） =====
-document.querySelectorAll("[data-event]").forEach((el) => {
-  el.addEventListener("click", () => {
-    const eventName = el.dataset.event;
-    const label = el.dataset.label || window.location.pathname;
+// ==============================
+// CTA click events（計測フック）
+// ==============================
+(() => {
+  const targets = $$("[data-event]");
+  if (!targets.length) return;
 
-    console.log("EVENT:", eventName, "LABEL:", label);
+  targets.forEach((el) => {
+    el.addEventListener("click", () => {
+      const eventName = el.dataset.event;
+      const label = el.dataset.label || window.location.pathname;
 
-    if (typeof gtag === "function" && eventName) {
-      gtag("event", eventName, {
-        event_category: "lp",
-        event_label: label,
-        transport_type: "beacon"
-      });
-    }
+      console.log("EVENT:", eventName, "LABEL:", label);
+
+      if (typeof gtag === "function" && eventName) {
+        gtag("event", eventName, {
+          event_category: "lp",
+          event_label: label,
+          transport_type: "beacon",
+        });
+      }
+    });
   });
-});
+})();
 
-/* sim-income.js */
-(function () {
+// ==============================
+// sim-income.js（堅牢版）
+// ==============================
+(() => {
   const dailyInput = document.getElementById("sim-daily-wage");
   const weeklyInput = document.getElementById("sim-weekly-days");
   const transportInput = document.getElementById("sim-transport");
@@ -66,38 +88,51 @@ document.querySelectorAll("[data-event]").forEach((el) => {
   const resultMonthly = document.getElementById("result-monthly");
   const resultYearly = document.getElementById("result-yearly");
 
-  if (!dailyInput || !weeklyInput || !resultMonthly) return;
+  // 必須DOMが無いページでは何もしない（落とさない）
+  if (!dailyInput || !weeklyInput || !resultMonthly || !resultYearly) return;
 
-  function formatCurrency(num) {
-    return Number(num || 0).toLocaleString();
+  const toInt = (el) => {
+    if (!el) return 0;
+    const raw = String(el.value ?? "");
+    const digits = raw.replace(/[^\d]/g, "");
+    const n = parseInt(digits, 10);
+    return Number.isFinite(n) ? n : 0;
+  };
+
+  const fmt = (n) => Number(n || 0).toLocaleString("ja-JP");
+
+  function calc() {
+    const daily = toInt(dailyInput);
+    const weekly = toInt(weeklyInput);
+    const transport = toInt(transportInput);
+
+    const monthly = daily * (weekly * 4) + transport;
+    const yearly = monthly * 12;
+
+    if (displayDaily) displayDaily.textContent = fmt(daily);
+    if (displayWeekly) displayWeekly.textContent = String(weekly);
+    if (displayTransport) displayTransport.textContent = fmt(transport);
+
+    resultMonthly.textContent = fmt(monthly);
+    resultYearly.textContent = fmt(yearly);
   }
 
-  function calculateIncome() {
-    const dailyWage = parseInt(dailyInput.value, 10) || 0;
-    const weeklyDays = parseInt(weeklyInput.value, 10) || 0;
-    const transportCost = parseInt(transportInput?.value, 10) || 0;
-
-    const monthlyShifts = weeklyDays * 4;
-    const monthlyIncome = dailyWage * monthlyShifts + transportCost;
-    const yearlyIncome = monthlyIncome * 12;
-
-    if (displayDaily) displayDaily.textContent = formatCurrency(dailyWage);
-    if (displayWeekly) displayWeekly.textContent = String(weeklyDays);
-    if (displayTransport) displayTransport.textContent = formatCurrency(transportCost);
-
-    if (resultMonthly) resultMonthly.textContent = formatCurrency(monthlyIncome);
-    if (resultYearly) resultYearly.textContent = formatCurrency(yearlyIncome);
-  }
-
-  const inputs = [dailyInput, weeklyInput, transportInput].filter(Boolean);
-  inputs.forEach((input) => {
-    input.addEventListener("input", calculateIncome);
+  [dailyInput, weeklyInput, transportInput].filter(Boolean).forEach((el) => {
+    el.addEventListener("input", calc);
+    el.addEventListener("change", calc);
   });
 
-  calculateIncome();
+  calc();
 })();
 
-// ===== Contact Form Submit (固定版) =====
+// ==============================
+// Contact Form Submit（固定版）
+// - anti double submit
+// - minimal validation
+// - honeypot
+// - UA send
+// - timeout (AbortController)
+// ==============================
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
   if (!form) return;
@@ -115,14 +150,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const TIMEOUT_MS = 15000;
 
   const submitBtn = form.querySelector('button[type="submit"]');
-  const originalText = submitBtn ? submitBtn.textContent : "";
+  const originalText = submitBtn ? submitBtn.textContent : "送信する";
 
   function setSubmitting(isSubmitting) {
     if (!submitBtn) return;
     submitBtn.disabled = isSubmitting;
-    submitBtn.textContent = isSubmitting
-      ? "送信中..."
-      : originalText || "送信する";
+    submitBtn.textContent = isSubmitting ? "送信中..." : originalText;
   }
 
   function validateForm({ name, email, phone, message }) {
@@ -163,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
-      message: formData.get("message")
+      message: formData.get("message"),
     };
     const errors = validateForm(payload);
     if (errors.length) {
@@ -187,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mode: "no-cors",
         signal: controller.signal,
         cache: "no-store",
-        keepalive: true
+        keepalive: true,
       });
 
       // no-cors運用：到達した前提でthanksへ
