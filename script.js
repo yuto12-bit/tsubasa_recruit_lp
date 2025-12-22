@@ -73,57 +73,7 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   });
 })();
 
-// ==============================
-// sim-income.js（堅牢版）
-// ==============================
-(() => {
-  const dailyInput = document.getElementById("sim-daily-wage");
-  const weeklyInput = document.getElementById("sim-weekly-days");
-  const transportInput = document.getElementById("sim-transport");
 
-  const displayDaily = document.getElementById("display-daily");
-  const displayWeekly = document.getElementById("display-weekly");
-  const displayTransport = document.getElementById("display-transport");
-
-  const resultMonthly = document.getElementById("result-monthly");
-  const resultYearly = document.getElementById("result-yearly");
-
-  // 必須DOMが無いページでは何もしない（落とさない）
-  if (!dailyInput || !weeklyInput || !resultMonthly || !resultYearly) return;
-
-  const toInt = (el) => {
-    if (!el) return 0;
-    const raw = String(el.value ?? "");
-    const digits = raw.replace(/[^\d]/g, "");
-    const n = parseInt(digits, 10);
-    return Number.isFinite(n) ? n : 0;
-  };
-
-  const fmt = (n) => Number(n || 0).toLocaleString("ja-JP");
-
-  function calc() {
-    const daily = toInt(dailyInput);
-    const weekly = toInt(weeklyInput);
-    const transport = toInt(transportInput);
-
-    const monthly = daily * (weekly * 4) + transport;
-    const yearly = monthly * 12;
-
-    if (displayDaily) displayDaily.textContent = fmt(daily);
-    if (displayWeekly) displayWeekly.textContent = String(weekly);
-    if (displayTransport) displayTransport.textContent = fmt(transport);
-
-    resultMonthly.textContent = fmt(monthly);
-    resultYearly.textContent = fmt(yearly);
-  }
-
-  [dailyInput, weeklyInput, transportInput].filter(Boolean).forEach((el) => {
-    el.addEventListener("input", calc);
-    el.addEventListener("change", calc);
-  });
-
-  calc();
-})();
 
 // ==============================
 // Contact Form Submit（固定版）
