@@ -39,5 +39,15 @@
       トップページに戻る
     </a>
   </div>
+
+  <script>
+  window.addEventListener('load', () => {
+    gtag('event', 'submit_success', {
+      event_category: 'form',
+      page_path: location.pathname
+    });
+  });
+</script>
+
 </body>
 </html>
