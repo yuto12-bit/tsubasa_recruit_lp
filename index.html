@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="layout.css" />
+  <link rel="stylesheet" href="components/variants/sim-income/sim-income.css">
 </head>
  <!-- GA4 -->
 <!-- Google tag (gtag.js) -->
@@ -212,6 +213,78 @@
   </div>
 </section>
 
+<section id="sim-income" class="sim-income">
+  <div class="container sim-income__inner">
+    <h2 class="section-title">月収・年収シミュレーション</h2>
+    <p class="sim-income__lead">
+      あなたの働き方に合わせた収入の目安を計算できます。<br>
+      スライダーを動かしてご確認ください。
+    </p>
+
+    <div class="sim-income__calculator">
+      <div class="sim-income__inputs">
+        <div class="sim-income__group">
+          <label for="sim-daily-wage">
+            日給
+            <span class="sim-income__value-display"><span id="display-daily">15,000</span>円</span>
+          </label>
+          <input type="range" id="sim-daily-wage" min="12000" max="18000" step="500" value="15000">
+          <div class="sim-income__range-labels">
+            <span>1.2万</span>
+            <span>1.8万</span>
+          </div>
+        </div>
+
+        <div class="sim-income__group">
+          <label for="sim-weekly-days">
+            週の出勤日数
+            <span class="sim-income__value-display"><span id="display-weekly">3</span>日</span>
+          </label>
+          <input type="range" id="sim-weekly-days" min="1" max="6" step="1" value="3">
+          <div class="sim-income__range-labels">
+            <span>週1</span>
+            <span>週6</span>
+          </div>
+        </div>
+
+        <div class="sim-income__group">
+          <label for="sim-transport">
+            交通費（月額）
+            <span class="sim-income__value-display"><span id="display-transport">0</span>円</span>
+          </label>
+          <input type="range" id="sim-transport" min="0" max="20000" step="1000" value="0">
+          <div class="sim-income__range-labels">
+            <span>0</span>
+            <span>2万</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sim-income__results">
+        <div class="sim-income__result-box">
+          <span class="sim-income__result-label">月収目安</span>
+          <div class="sim-income__result-value">
+            <span id="result-monthly">180,000</span><span class="unit">円</span>
+          </div>
+        </div>
+        <div class="sim-income__result-box highlight">
+          <span class="sim-income__result-label">年収換算</span>
+          <div class="sim-income__result-value">
+            <span id="result-yearly">2,160,000</span><span class="unit">円</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="sim-income__note">
+      ※上記は目安であり、実際の支給額を保証するものではありません。<br>
+      ※シフトの状況や現場により変動します。<br>
+      ※税金・社会保険料などは控除前の金額です。<br>
+      ※詳細は面談にてご説明いたします。
+    </p>
+  </div>
+</section>
+
 <!-- FAQ（採用LP: よくある質問） -->
 <section id="faq" class="module-wrapper">
   <div class="container section__inner">
@@ -277,6 +350,9 @@
     <div class="contact__form-wrapper">
       
       <form id="contactForm" class="form">
+  
+  <input type="text" name="honeypot" style="display:none;" tabindex="-1" autocomplete="off">
+
 
   <input
   type="hidden"
@@ -306,15 +382,15 @@
     <textarea name="message" id="message" class="form__textarea" rows="5" placeholder="ご質問や工事のご希望時期などをご記入ください。"></textarea>
   </div>
 
-    <div class="form__group form__consent">
-    <label class="form__consent-label">
-      <input type="checkbox" name="privacy_agree" required>
-      <span>
-        <a href="#privacy">プライバシーポリシー</a>に同意して送信する
-      </span>
+    <div style="margin: 2rem 0; text-align: center;">
+    <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">
+        <input type="checkbox" name="privacy_agreement" required style="transform: scale(1.2); cursor: pointer;">
+        <span style="font-size: 0.9rem;">
+            <a href="privacy.html" target="_blank" style="text-decoration: underline; color: inherit;">プライバシーポリシー</a>
+            に同意して送信する
+        </span>
     </label>
-  </div>
-
+</div>
 
   <div class="form__submit">
     <button type="submit" class="btn btn--main btn--submit" data-event="submit_form">送信する</button>
@@ -323,46 +399,6 @@
 
       
       </div>
-  </div>
-</section>
-
-<section class="privacy" id="privacy">
-  <div class="container privacy__inner">
-    <h2 class="section-title">プライバシーポリシー</h2>
-
-    <p class="privacy__text">
-      本フォームからご入力いただいた氏名・電話番号・メールアドレス・その他の情報は、
-      採用選考およびご連絡のために利用します。
-    </p>
-
-    <p class="privacy__text">
-      当社は、採用応募への対応、応募状況の把握、採用活動の改善（LP制作・計測・運用支援を含む）を目的として、
-      採用業務の一部を外部パートナーに委託する場合があります。
-      その際、上記目的の達成に必要な範囲で、応募者の個人情報を当該外部パートナーが取り扱うことがあります。
-      当社は外部パートナーに対し、目的外利用の禁止、第三者への再提供の禁止、漏えい防止等を求め、適切に監督します。
-      なお、本採用選考の円滑な運営のため、応募データの管理・連絡業務の一部を外部パートナー（運営事務局）に委託しており、守秘義務のもとで応募情報を共有する場合があります。
-    </p>
-
-    <p class="privacy__text">
-      法令に基づく場合を除き、ご本人の同意なく第三者に提供することはありません。
-      ただし、上記利用目的の達成に必要な範囲で、個人情報の取扱いを委託する場合があります。
-    </p>
-
-    <p class="privacy__text">
-      個人情報の開示・訂正・削除等のご希望がある場合は、下記窓口までご連絡ください。
-    </p>
-
-    <p class="privacy__text">
-      事業者名：木村建設（仮）<br>
-      担当者名：木村 ○○（仮）<br>
-      電話番号：000-0000-0000（仮）<br>
-      メールアドレス：info@example.com（仮）
-    </p>
-
-    <p class="privacy__text privacy__note">
-      本プライバシーポリシーの内容は、法令の改正等に応じて予告なく変更される場合があります。
-      最新の内容は本ページに掲載します。
-    </p>
   </div>
 </section>
 
@@ -432,6 +468,8 @@
     el.value = value;
   })();
 </script>
+
+<script src="components/variants/sim-income/sim-income.js"></script>
 
 </body>
 </html>
